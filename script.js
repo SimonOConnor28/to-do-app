@@ -74,7 +74,7 @@ ul.addEventListener('click', function(e) {
     // //the this keyword represents the object which owns the code which is currently running
     // //so this will give us back the ul consistently which is not what we want
     // //console.log(this)
-  
+
     // //
     console.log(e);
 
@@ -85,16 +85,25 @@ ul.addEventListener('click', function(e) {
         //toggle between checked/unchecked (AKA done vs not done)
         e.target.classList.toggle('fa-square-check');
         e.target.classList.toggle('fa-square');
-        
+        e.target.parentNode.classList.toggle('text-muted');
 
     }
 })
 
+// add a "remove task" button to each task
+const clearSection = document.querySelector('button')
+
+clearSection.addEventListener('click', function(e) {
+    const checkedItems =document.querySelectorAll('.text-muted');
+    for (let i = 0; i < checkedItems.length; i += 1 ) {
+        checkedItems[i].remove();
+    }
+})
 
 
 // BONUS LEVEL 
 // add a "reset" button which clears all of the TO DOs
-// add a "remove task" button to each task
+
 // add a congratulations alert when all of the existing TO DOs are checked off
 // add a "Take a break" message if 5 or more task are completed 
 
